@@ -334,11 +334,19 @@ game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 end)
 game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 	if msg == ""..prefix.."noclip" then
+		game:GetService("StarterGui"):SetCore("SendNotification", {
+			Title = "Oldgen";
+			Text = "Noclip Enabled";
+		})
 		noclip = true
 		end
     end)
 game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 	if msg == ""..prefix.."clip" then
+		game:GetService("StarterGui"):SetCore("SendNotification", {
+			Title = "Oldgen";
+			Text = "Noclip Disabled";
+		})
 		noclip = false
 	end
 end)
@@ -396,12 +404,21 @@ end)
 
 game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 	if msg == "" ..prefix.."god" then
+		game:GetService("StarterGui"):SetCore("SendNotification", {
+			Title = "Oldgen";
+			Text = "Godmode Enabled";
+		})
 		game.Players.LocalPlayer.Character:BreakJoints()
 		god = true
 	end
 end)
 game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 	if msg == "" ..prefix.."ungod" then
+		game:GetService("StarterGui"):SetCore("SendNotification", {
+			Title = "Oldgen";
+			Text = "Godmode Disabled";
+		})
+		game.Players.LocalPlayer.Character:BreakJoints()
 		god = false
 	end
 end)
@@ -427,7 +444,7 @@ game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 
 		game:GetService("StarterGui"):SetCore("SendNotification", {
 			Title = "Oldgen";
-			Text = "Welcome To Oldgen Grip GUI, Made By Scartesu#2220";
+			Text = "Welcome To Oldgen Grip GUI, Made By Scar ye #6492";
 		})
 
 		gripgui.Name = "gripgui"
