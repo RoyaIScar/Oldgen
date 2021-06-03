@@ -791,7 +791,7 @@ game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 		TextLabel_5.Position = UDim2.new(0.00359712238, 0, 0.13333334, 0)
 		TextLabel_5.Size = UDim2.new(0, 114, 0, 50)
 		TextLabel_5.Font = Enum.Font.Ubuntu
-		TextLabel_5.Text = "'ws [Value]"
+		TextLabel_5.Text = "'walkspeed [Value]"
 		TextLabel_5.TextColor3 = Color3.fromRGB(191, 191, 191)
 		TextLabel_5.TextSize = 17.000
 
@@ -802,7 +802,7 @@ game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 		TextLabel_6.Position = UDim2.new(0.00719424477, 0, 0.221212119, 0)
 		TextLabel_6.Size = UDim2.new(0, 114, 0, 50)
 		TextLabel_6.Font = Enum.Font.Ubuntu
-		TextLabel_6.Text = "'jp [Value]"
+		TextLabel_6.Text = "'jumppower [Value]"
 		TextLabel_6.TextColor3 = Color3.fromRGB(191, 191, 191)
 		TextLabel_6.TextSize = 17.000
 
