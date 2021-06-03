@@ -102,7 +102,6 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
 	Title = "Oldgen";
 	Text = "Welcome To Oldgen, The Worlds Worst And Actual Unskidded Script (Apart From Tops :c)";
 })
-game.ReplicatedStorage.Hello:Destroy()
 game.ReplicatedStorage.lIIl:Destroy()
 game.ReplicatedStorage.Ban:Destroy()
 game.ReplicatedStorage.lIII:Destroy()
