@@ -107,6 +107,7 @@ game.ReplicatedStorage.Ban:Destroy()
 game.ReplicatedStorage.lIII:Destroy()
 game.ReplicatedStorage.IlIlII:Destroy()
 
+
 wait(5)
 game:GetService("StarterGui"):SetCore("SendNotification", {
 	Title = "Oldgen";
@@ -141,7 +142,7 @@ local function GBVO_fake_script() -- TextLabel.LocalScript
 
 	function zigzag(X) return math.acos(math.cos(X*math.pi))/math.pi end
 
-counter = 0
+	counter = 0
 
 	while wait(0.1)do
 		script.Parent.TextColor3 = Color3.fromHSV(zigzag(counter),1,1)
@@ -323,13 +324,27 @@ end)
 game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 	if msg:sub(1, 11) == "" .. prefix .. "walkspeed " then
 		local ws = msg:sub(12)
+		game:GetService("StarterGui"):SetCore("SendNotification", {
+			Title = "Oldgen";
+			Text = "Walkspeed Set To "..ws.."";
+		})
+		while true do wait(0.5)
 		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = ws
+	
+        end
 	end
 end)
 game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 	if msg:sub(1, 11) == "" .. prefix .. "jumppower " then
 		local jp = msg:sub(12)
+		game:GetService("StarterGui"):SetCore("SendNotification", {
+			Title = "Oldgen";
+			Text = "Jumppower Set To "..jp.."";
+		})
+		while true do wait(0.5)
 		game.Players.LocalPlayer.Character.Humanoid.JumpPower = jp
+			
+	    end
 	end
 end)
 game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
@@ -339,8 +354,8 @@ game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 			Text = "Noclip Enabled";
 		})
 		noclip = true
-		end
-    end)
+	end
+end)
 game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 	if msg == ""..prefix.."clip" then
 		game:GetService("StarterGui"):SetCore("SendNotification", {
@@ -901,7 +916,7 @@ game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 		TextLabel_12.Text = "'ungod"
 		TextLabel_12.TextColor3 = Color3.fromRGB(191, 191, 191)
 		TextLabel_12.TextSize = 17.000
-		
+
 		TextLabel_nc.Parent = cmds
 		TextLabel_nc.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		TextLabel_nc.BackgroundTransparency = 1.000
