@@ -456,6 +456,7 @@ game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 		})
 		while true do wait(0.3)
 		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = ws
+		end
 	end
 end)
 game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
@@ -468,6 +469,7 @@ game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 		while true do wait(0.3)
 		local jp = msg:sub(12)
 		game.Players.LocalPlayer.Character.Humanoid.JumpPower = jp
+	   end
 	end
 end)
 game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
