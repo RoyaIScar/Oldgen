@@ -929,6 +929,7 @@ game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 		TextLabel_3.Text = ""
 		TextLabel_3.TextColor3 = Color3.fromRGB(0, 0, 0)
 		TextLabel_3.TextSize = 14.000
+		TextLabel_3.BorderSizePixel = 0
 
 		TextLabel_4.Parent = cmds
 		TextLabel_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
