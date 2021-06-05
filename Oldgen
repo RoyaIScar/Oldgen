@@ -450,12 +450,21 @@ end)
 game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 	if msg:sub(1, 11) == "" .. prefix .. "walkspeed " then
 		local ws = msg:sub(12)
+		game:GetService("StarterGui"):SetCore("SendNotification", {
+			Title = "Oldgen";
+			Text = "Walkspeed Set To "..ws.."";
+		})
 		while true do wait(0.3)
 		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = ws
 	end
 end)
 game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 	if msg:sub(1, 11) == "" .. prefix .. "jumppower " then
+		local jp = msg:sub(12)
+		game:GetService("StarterGui"):SetCore("SendNotification", {
+			Title = "Oldgen";
+			Text = "Jumppower Set To "..jp.."";
+		})
 		while true do wait(0.3)
 		local jp = msg:sub(12)
 		game.Players.LocalPlayer.Character.Humanoid.JumpPower = jp
