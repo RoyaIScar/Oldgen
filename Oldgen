@@ -13,6 +13,7 @@
 
 -- a garbage script made by Scartesu/RoyaIScar
 -- includes a never seen before "invisible" script and a very good aimbot
+-- garbage esp until i can be bothered to make a really good one
 -- still being updated
 
 local prefix = "'"
@@ -107,7 +108,6 @@ game.ReplicatedStorage.Ban:Destroy()
 game.ReplicatedStorage.lIII:Destroy()
 game.ReplicatedStorage.IlIlII:Destroy()
 
-
 wait(5)
 game:GetService("StarterGui"):SetCore("SendNotification", {
 	Title = "Oldgen";
@@ -142,7 +142,7 @@ local function GBVO_fake_script() -- TextLabel.LocalScript
 
 	function zigzag(X) return math.acos(math.cos(X*math.pi))/math.pi end
 
-	counter = 0
+counter = 0
 
 	while wait(0.1)do
 		script.Parent.TextColor3 = Color3.fromHSV(zigzag(counter),1,1)
@@ -152,6 +152,132 @@ local function GBVO_fake_script() -- TextLabel.LocalScript
 end
 coroutine.wrap(GBVO_fake_script)()
 
+-- garbage esp until i can be bothered to make a good one
+local camera = game:GetService("Workspace").CurrentCamera
+local CurrentCamera =workspace.CurrentCamera
+local pp = game.Players.LocalPlayer
+local worldToViewportPoint = CurrentCamera.worldToViewportPoint
+local bhead = Vector3.new(0,0.5,0)
+local bleg = Vector3.new(0,3,0)
+
+
+for _,v in pairs(game.Players:GetChildren()) do
+	local BoxOutline = Drawing.new("Square")
+	BoxOutline.Visible = false
+
+	BoxOutline.Color = Color3.new(0,0,0)
+
+
+	BoxOutline.Thickness = 3
+	BoxOutline.Transparency = 1
+	BoxOutline.Filled = false
+
+	local mbox = Drawing.new("Square")
+	mbox.Visible = false
+
+
+
+	mbox.Color = Color3.fromRGB(255,60,50)
+
+
+	mbox.Thickness = 1
+	mbox.Transparency = 1
+	mbox.Filled = false
+
+	function esp()
+		game:GetService("RunService").RenderStepped:connect(function()
+			if v.Character ~= nil and v.Character:FindFirstChild("Humanoid") ~= nil and v.Character:FindFirstChild("HumanoidRootPart") ~= nil and v ~= pp and v.Character.Humanoid.Health > 0 then
+				local Vector, onScreen = camera:worldToViewportPoint(v.Character.HumanoidRootPart.Position)
+				local rootpart = v.Character.HumanoidRootPart
+				local Head = v.Character.Head
+				local rootpos, rootvis = worldToViewportPoint(CurrentCamera,rootpart.Position)
+				local headpos = worldToViewportPoint(CurrentCamera, Head.Position + bhead)
+				local legpos = worldToViewportPoint(CurrentCamera, rootpart.Position - bleg)
+				if onScreen then
+					BoxOutline.Size = Vector2.new(1000 / rootpos.Z, headpos.Y - legpos.Y)
+					BoxOutline.Position = Vector2.new(rootpos.X - BoxOutline.Size.X /2, rootpos.Y - BoxOutline.Size.Y / 2)
+					BoxOutline.Visible = true
+
+					mbox.Size = Vector2.new(1000 / rootpos.Z, headpos.Y - legpos.Y)
+					mbox.Position = Vector2.new(rootpos.X - mbox.Size.X /2, rootpos.Y - mbox.Size.Y / 2)
+					mbox.Visible = true
+
+
+				else
+					BoxOutline.Visible = false
+					mbox.Visible = false
+
+				end
+			else
+				BoxOutline.Visible = false
+				mbox.Visible = false
+
+			end
+		end)
+	end
+	coroutine.wrap(esp)()
+end
+
+game.Players.PlayerAdded:connect(function(v)
+	local BoxOutline = Drawing.new("Square")
+	BoxOutline.Visible = false
+
+	BoxOutline.Color = Color3.new(0,0,0)
+
+
+	BoxOutline.Thickness = 3
+	BoxOutline.Transparency = 1
+	BoxOutline.Filled = false
+
+	local mbox = Drawing.new("Square")
+	mbox.Visible = false
+
+
+
+	mbox.Color = Color3.fromRGB(255,60,50)
+
+
+	mbox.Thickness = 1
+	mbox.Transparency = 1
+	mbox.Filled = false
+
+
+
+	function esp()
+		game:GetService("RunService").RenderStepped:connect(function()
+			if v.Character ~= nil and v.Character:FindFirstChild("Humanoid") ~= nil and v.Character:FindFirstChild("HumanoidRootPart") ~= nil and v ~= pp and v.Character.Humanoid.Health > 0 then
+				local Vector, onScreen = camera:worldToViewportPoint(v.Character.HumanoidRootPart.Position)
+				local rootpart = v.Character.HumanoidRootPart
+				local Head = v.Character.Head
+				local rootpos, rootvis = worldToViewportPoint(CurrentCamera,rootpart.Position)
+				local headpos = worldToViewportPoint(CurrentCamera, Head.Position + bhead)
+				local legpos = worldToViewportPoint(CurrentCamera, rootpart.Position - bleg)
+				if onScreen then
+					BoxOutline.Size = Vector2.new(1000 / rootpos.Z, headpos.Y - legpos.Y)
+					BoxOutline.Position = Vector2.new(rootpos.X - BoxOutline.Size.X /2, rootpos.Y - BoxOutline.Size.Y / 2)
+					BoxOutline.Visible = true
+
+					mbox.Size = Vector2.new(1000 / rootpos.Z, headpos.Y - legpos.Y)
+					mbox.Position = Vector2.new(rootpos.X - mbox.Size.X /2, rootpos.Y - mbox.Size.Y / 2)
+					mbox.Visible = true
+
+
+				else
+					BoxOutline.Visible = false
+					mbox.Visible = false
+
+				end
+			else
+				BoxOutline.Visible = false
+				mbox.Visible = false
+
+			end
+		end)
+	end
+	coroutine.wrap(esp)()
+end)
+
+-- end garbage esp
 
 Credits.Name = "Credits"
 Credits.Parent = oldgenui
@@ -324,27 +450,13 @@ end)
 game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 	if msg:sub(1, 11) == "" .. prefix .. "walkspeed " then
 		local ws = msg:sub(12)
-		game:GetService("StarterGui"):SetCore("SendNotification", {
-			Title = "Oldgen";
-			Text = "Walkspeed Set To "..ws.."";
-		})
-		while true do wait(0.5)
 		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = ws
-	
-        end
 	end
 end)
 game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 	if msg:sub(1, 11) == "" .. prefix .. "jumppower " then
 		local jp = msg:sub(12)
-		game:GetService("StarterGui"):SetCore("SendNotification", {
-			Title = "Oldgen";
-			Text = "Jumppower Set To "..jp.."";
-		})
-		while true do wait(0.5)
 		game.Players.LocalPlayer.Character.Humanoid.JumpPower = jp
-			
-	    end
 	end
 end)
 game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
@@ -354,8 +466,8 @@ game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 			Text = "Noclip Enabled";
 		})
 		noclip = true
-	end
-end)
+		end
+    end)
 game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 	if msg == ""..prefix.."clip" then
 		game:GetService("StarterGui"):SetCore("SendNotification", {
@@ -916,7 +1028,7 @@ game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 		TextLabel_12.Text = "'ungod"
 		TextLabel_12.TextColor3 = Color3.fromRGB(191, 191, 191)
 		TextLabel_12.TextSize = 17.000
-
+		
 		TextLabel_nc.Parent = cmds
 		TextLabel_nc.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		TextLabel_nc.BackgroundTransparency = 1.000
