@@ -113,6 +113,11 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
 	Title = "Oldgen";
 	Text = "say \'cmds\ for help";
 })
+wait(0.5)
+game:GetService("StarterGui"):SetCore("SendNotification", {
+	Title = "Oldgen";
+	Text = "V1.5 UPDATE: ADDED NEW AND IMPROVED CRASH SCRIPT AND FIXED THE CMDS IN CMD TAB GOING OFF THE SCREEN";
+})
 
 tag.Name = "tag"
 tag.Parent = game.CoreGui
@@ -142,7 +147,7 @@ local function GBVO_fake_script() -- TextLabel.LocalScript
 
 	function zigzag(X) return math.acos(math.cos(X*math.pi))/math.pi end
 
-counter = 0
+	counter = 0
 
 	while wait(0.1)do
 		script.Parent.TextColor3 = Color3.fromHSV(zigzag(counter),1,1)
@@ -455,7 +460,7 @@ game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 			Text = "Walkspeed Set To "..ws.."";
 		})
 		while true do wait(0.3)
-		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = ws
+			game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = ws
 		end
 	end
 end)
@@ -467,9 +472,9 @@ game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 			Text = "Jumppower Set To "..jp.."";
 		})
 		while true do wait(0.3)
-		local jp = msg:sub(12)
-		game.Players.LocalPlayer.Character.Humanoid.JumpPower = jp
-	   end
+			local jp = msg:sub(12)
+			game.Players.LocalPlayer.Character.Humanoid.JumpPower = jp
+		end
 	end
 end)
 game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
@@ -479,8 +484,8 @@ game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 			Text = "Noclip Enabled";
 		})
 		noclip = true
-		end
-    end)
+	end
+end)
 game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 	if msg == ""..prefix.."clip" then
 		game:GetService("StarterGui"):SetCore("SendNotification", {
@@ -560,6 +565,29 @@ game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 		})
 		game.Players.LocalPlayer.Character:BreakJoints()
 		god = false
+	end
+end)
+
+game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
+	if msg == ""..prefix.."crash" then
+		game:GetService("StarterGui"):SetCore("SendNotification", {
+			Title = "Oldgen";
+			Text = "Crash Starting, Rejoin To Disable It. (You Need A Radio For This To Work)";
+		})
+		god = true 
+		game.Players.LocalPlayer.Character:BreakJoints()
+		wait(7.8)
+		_G.conn = game:GetService("RunService").Heartbeat:Connect(function()
+			local msg = "Shut yo skin tone chicken bone google chrome no home flip phone disowned ice cream cone garden gnome extra chromosome metronome dimmadome genome full blown monochrome student loan Indiana Jones overgrown flintstone x and y hormone friend zone sylvester stallone sierra leone autozone professionally seen silver patrone head ass up - |oldgen| made by Scartesu |best upcoming script around| Shut yo skin tone chicken bone google chrome no home flip phone disowned ice cream cone garden gnome extra chromosome metronome dimmadome genome full blown monochrome student loan Indiana Jones overgrown flintstone x and y hormone friend zone sylvester stallone sierra leone autozone professionally seen silver patrone head ass up - |oldgen| made by Scartesu |best upcoming script around| Shut yo skin tone chicken bone google chrome no home flip phone disowned ice cream cone garden gnome extra chromosome metronome dimmadome genome full blown monochrome student loan Indiana Jones overgrown flintstone x and y hormone friend zone sylvester stallone sierra leone autozone professionally seen silver patrone head ass up - |oldgen| made by Scartesu |best upcoming script around| Shut yo skin tone chicken bone google chrome no home flip phone disowned ice cream cone garden gnome extra chromosome metronome dimmadome genome full blown monochrome student loan Indiana Jones overgrown flintstone x and y hormone friend zone sylvester stallone sierra leone autozone professionally seen silver patrone head ass up - |oldgen| made by Scartesu |best upcoming script around| Shut yo skin tone chicken bone google chrome no home flip phone disowned ice cream cone garden gnome extra chromosome metronome dimmadome genome full blown monochrome student loan Indiana Jones overgrown flintstone x and y hormone friend zone sylvester stallone sierra leone autozone professionally seen silver patrone head ass up - |oldgen| made by Scartesu |best upcoming script around| Shut yo skin tone chicken bone google chrome no home flip phone disowned ice cream cone garden gnome extra chromosome metronome dimmadome genome full blown monochrome student loan Indiana Jones overgrown flintstone x and y hormone friend zone sylvester stallone sierra leone autozone professionally seen silver patrone head ass up - |oldgen| made by Scartesu |best upcoming script around| Shut yo skin tone chicken bone google chrome no home flip phone disowned ice cream cone garden gnome extra chromosome metronome dimmadome genome full blown monochrome student loan Indiana Jones overgrown flintstone x and y hormone friend zone sylvester stallone sierra leone autozone professionally seen silver patrone head ass up - |oldgen| made by Scartesu |best upcoming script around| Shut yo skin tone chicken bone google chrome no home flip phone disowned ice cream cone garden gnome extra chromosome metronome dimmadome genome full blown monochrome student loan Indiana Jones overgrown flintstone x and y hormone friend zone sylvester stallone sierra leone autozone professionally seen silver patrone head ass up - |oldgen| made by Scartesu |best upcoming script around| Shut yo skin tone chicken bone google chrome no home flip phone disowned ice cream cone garden gnome extra chromosome metronome dimmadome genome full blown monochrome student loan Indiana Jones overgrown flintstone x and y hormone friend zone sylvester stallone sierra leone autozone professionally seen silver patrone head ass up - |oldgen| made by Scartesu |best upcoming script around| Shut yo skin tone chicken bone google chrome no home flip phone disowned ice cream cone garden gnome extra chromosome metronome dimmadome genome full blown monochrome student loan Indiana Jones overgrown flintstone x and y hormone friend zone sylvester stallone sierra leone autozone professionally seen silver patrone head ass up - |oldgen| made by Scartesu |best upcoming script around| Shut yo skin tone chicken bone google chrome no home flip phone disowned ice cream cone garden gnome extra chromosome metronome dimmadome genome full blown monochrome student loan Indiana Jones overgrown flintstone x and y hormone friend zone sylvester stallone sierra leone autozone professionally seen silver patrone head ass up - |oldgen| made by Scartesu |best upcoming script around| Shut yo skin tone chicken bone google chrome no home flip phone disowned ice cream cone garden gnome extra chromosome metronome dimmadome genome full blown monochrome student loan Indiana Jones overgrown flintstone x and y hormone friend zone sylvester stallone sierra leone autozone professionally seen silver patrone head ass up - |oldgen| made by Scartesu |best upcoming script around| Shut yo skin tone chicken bone google chrome no home flip phone disowned ice cream cone garden gnome extra chromosome metronome dimmadome genome full blown monochrome student loan Indiana Jones overgrown flintstone x and y hormone friend zone sylvester stallone sierra leone autozone professionally seen silver patrone head ass up - |oldgen| made by Scartesu |best upcoming script around| Shut yo skin tone chicken bone google chrome no home flip phone disowned ice cream cone garden gnome extra chromosome metronome dimmadome genome full blown monochrome student loan Indiana Jones overgrown flintstone x and y hormone friend zone sylvester stallone sierra leone autozone professionally seen silver patrone head ass up - |oldgen| made by Scartesu |best upcoming script around| Shut yo skin tone chicken bone google chrome no home flip phone disowned ice cream cone garden gnome extra chromosome metronome dimmadome genome full blown monochrome student loan Indiana Jones overgrown flintstone x and y hormone friend zone sylvester stallone sierra leone autozone professionally seen silver patrone head ass up - |oldgen| made by Scartesu |best upcoming script around| Shut yo skin tone chicken bone google chrome no home flip phone disowned ice cream cone garden gnome extra chromosome metronome dimmadome genome full blown monochrome student loan Indiana Jones overgrown flintstone x and y hormone friend zone sylvester stallone sierra leone autozone professionally seen silver patrone head ass up - |oldgen| made by Scartesu |best upcoming script around| Shut yo skin tone chicken bone google chrome no home flip phone disowned ice cream cone garden gnome extra chromosome metronome dimmadome genome full blown monochrome student loan Indiana Jones overgrown flintstone x and y hormone friend zone sylvester stallone sierra leone autozone professionally seen silver patrone head ass up - |oldgen| made by Scartesu |best upcoming script around| Shut yo skin tone chicken bone google chrome no home flip phone disowned ice cream cone garden gnome extra chromosome metronome dimmadome genome full blown monochrome student loan Indiana Jones overgrown flintstone x and y hormone friend zone sylvester stallone sierra leone autozone professionally seen silver patrone head ass up - |oldgen| made by Scartesu |best upcoming script around| Shut yo skin tone chicken bone google chrome no home flip phone disowned ice cream cone garden gnome extra chromosome metronome dimmadome genome full blown monochrome student loan Indiana Jones overgrown flintstone x and y hormone friend zone sylvester stallone sierra leone autozone professionally seen silver patrone head ass up - |oldgen| made by Scartesu |best upcoming script around| Shut yo skin tone chicken bone google chrome no home flip phone disowned ice cream cone garden gnome extra chromosome metronome dimmadome genome full blown monochrome student loan Indiana Jones overgrown flintstone x and y hormone friend zone sylvester stallone sierra leone autozone professionally seen silver patrone head ass up - |oldgen| made by Scartesu |best upcoming script around| Shut yo skin tone chicken bone google chrome no home flip phone disowned ice cream cone garden gnome extra chromosome metronome dimmadome genome full blown monochrome student loan Indiana Jones overgrown flintstone x and y hormone friend zone sylvester stallone sierra leone autozone professionally seen silver patrone head ass up - |oldgen| made by Scartesu |best upcoming script around| Shut yo skin tone chicken bone google chrome no home flip phone disowned ice cream cone garden gnome extra chromosome metronome dimmadome genome full blown monochrome student loan Indiana Jones overgrown flintstone x and y hormone friend zone sylvester stallone sierra leone autozone professionally seen silver patrone head ass up - |oldgen| made by Scartesu |best upcoming script around| Shut yo skin tone chicken bone google chrome no home flip phone disowned ice cream cone garden gnome extra chromosome metronome dimmadome genome full blown monochrome student loan Indiana Jones overgrown flintstone x and y hormone friend zone sylvester stallone sierra leone autozone professionally seen silver patrone head ass up - |oldgen| made by Scartesu |best upcoming script around| Shut yo skin tone chicken bone google chrome no home flip phone disowned ice cream cone garden gnome extra chromosome metronome dimmadome genome full blown monochrome student loan Indiana Jones overgrown flintstone x and y hormone friend zone sylvester stallone sierra leone autozone professionally seen silver patrone head ass up - |oldgen| made by Scartesu |best upcoming script around| Shut yo skin tone chicken bone google chrome no home flip phone disowned ice cream cone garden gnome extra chromosome metronome dimmadome genome full blown monochrome student loan Indiana Jones overgrown flintstone x and y hormone friend zone sylvester stallone sierra leone autozone professionally seen silver patrone head ass up - |oldgen| made by Scartesu |best upcoming script around| Shut yo skin tone chicken bone google chrome no home flip phone disowned ice cream cone garden gnome extra chromosome metronome dimmadome genome full blown monochrome student loan Indiana Jones overgrown flintstone x and y hormone friend zone sylvester stallone sierra leone autozone professionally seen silver patrone head ass up - |oldgen| made by Scartesu |best upcoming script around| Shut yo skin tone chicken bone google chrome no home flip phone disowned ice cream cone garden gnome extra chromosome metronome dimmadome genome full blown monochrome student loan Indiana Jones overgrown flintstone x and y hormone friend zone sylvester stallone sierra leone autozone professionally seen silver patrone head ass up - |oldgen| made by Scartesu |best upcoming script around| Shut yo skin tone chicken bone google chrome no home flip phone disowned ice cream cone garden gnome extra chromosome metronome dimmadome genome full blown monochrome student loan Indiana Jones overgrown flintstone x and y hormone friend zone sylvester stallone sierra leone autozone professionally seen silver patrone head ass up - |oldgen| made by Scartesu |best upcoming script around| Shut yo skin tone chicken bone google chrome no home flip phone disowned ice cream cone garden gnome extra chromosome metronome dimmadome genome full blown monochrome student loan Indiana Jones overgrown flintstone x and y hormone friend zone sylvester stallone sierra leone autozone professionally seen silver patrone head ass up - |oldgen| made by Scartesu |best upcoming script around| Shut yo skin tone chicken bone google chrome no home flip phone disowned ice cream cone garden gnome extra chromosome metronome dimmadome genome full blown monochrome student loan Indiana Jones overgrown flintstone x and y hormone friend zone sylvester stallone sierra leone autozone professionally seen silver patrone head ass up - |oldgen| made by Scartesu |best upcoming script around| Shut yo skin tone chicken bone google chrome no home flip phone disowned ice cream cone garden gnome extra chromosome metronome dimmadome genome full blown monochrome student loan Indiana Jones overgrown flintstone x and y hormone friend zone sylvester stallone sierra leone autozone professionally seen silver patrone head ass up - |oldgen| made by Scartesu |best upcoming script around| Shut yo skin tone chicken bone google chrome no home flip phone disowned ice cream cone garden gnome extra chromosome metronome dimmadome genome full blown monochrome student loan Indiana Jones overgrown flintstone x and y hormone friend zone sylvester stallone sierra leone autozone professionally seen silver patrone head ass up - |oldgen| made by Scartesu |best upcoming script around| Shut yo skin tone chicken bone google chrome no home flip phone disowned ice cream cone garden gnome extra chromosome metronome dimmadome genome full blown monochrome student loan Indiana Jones overgrown flintstone x and y hormone friend zone sylvester stallone sierra leone autozone professionally seen silver patrone head ass up - |oldgen| made by Scartesu |best upcoming script around| Shut yo skin tone chicken bone google chrome no home flip phone disowned ice cream cone garden gnome extra chromosome metronome dimmadome genome full blown monochrome student loan Indiana Jones overgrown flintstone x and y hormone friend zone sylvester stallone sierra leone autozone professionally seen silver patrone head ass up - |oldgen| made by Scartesu |best upcoming script around| Shut yo skin tone chicken bone google chrome no home flip phone disowned ice cream cone garden gnome extra chromosome metronome dimmadome genome full blown monochrome student loan Indiana Jones overgrown flintstone x and y hormone friend zone sylvester stallone sierra leone autozone professionally seen silver patrone head ass up - |oldgen| made by Scartesu |best upcoming script around| Shut yo skin tone chicken bone google chrome no home flip phone disowned ice cream cone garden gnome extra chromosome metronome dimmadome genome full blown monochrome student loan Indiana Jones overgrown flintstone x and y hormone friend zone sylvester stallone sierra leone autozone professionally seen silver patrone head ass up - |oldgen| made by Scartesu |best upcoming script around| Shut yo skin tone chicken bone google chrome no home flip phone disowned ice cream cone garden gnome extra chromosome metronome dimmadome genome full blown monochrome student loan Indiana Jones overgrown flintstone x and y hormone friend zone sylvester stallone sierra leone autozone professionally seen silver patrone head ass up - |oldgen| made by Scartesu |best upcoming script around| Shut yo skin tone chicken bone google chrome no home flip phone disowned ice cream cone garden gnome extra chromosome metronome dimmadome genome full blown monochrome student loan Indiana Jones overgrown flintstone x and y hormone friend zone sylvester stallone sierra leone autozone professionally seen silver patrone head ass up - |oldgen| made by Scartesu |best upcoming script around| Shut yo skin tone chicken bone google chrome no home flip phone disowned ice cream cone garden gnome extra chromosome metronome dimmadome genome full blown monochrome student loan Indiana Jones overgrown flintstone x and y hormone friend zone sylvester stallone sierra leone autozone professionally seen silver patrone head ass up - |oldgen| made by Scartesu |best upcoming script around| Shut yo skin tone chicken bone google chrome no home flip phone disowned ice cream cone garden gnome extra chromosome metronome dimmadome genome full blown monochrome student loan Indiana Jones overgrown flintstone x and y hormone friend zone sylvester stallone sierra leone autozone professionally seen silver patrone head ass up - |oldgen| made by Scartesu |best upcoming script around| Shut yo skin tone chicken bone google chrome no home flip phone disowned ice cream cone garden gnome extra chromosome metronome dimmadome genome full blown monochrome student loan Indiana Jones overgrown flintstone x and y hormone friend zone sylvester stallone sierra leone autozone professionally seen silver patrone head ass up - |oldgen| made by Scartesu |best upcoming script around| Shut yo skin tone chicken bone google chrome no home flip phone disowned ice cream cone garden gnome extra chromosome metronome dimmadome genome full blown monochrome student loan Indiana Jones overgrown flintstone x and y hormone friend zone sylvester stallone sierra leone autozone professionally seen silver patrone head ass up - |oldgen| made by Scartesu |best upcoming script around| Shut yo skin tone chicken bone google chrome no home flip phone disowned ice cream cone garden gnome extra chromosome metronome dimmadome genome full blown monochrome student loan Indiana Jones overgrown flintstone x and y hormone friend zone sylvester stallone sierra leone autozone professionally seen silver patrone head ass up - |oldgen| made by Scartesu |best upcoming script around| Shut yo skin tone chicken bone google chrome no home flip phone disowned ice cream cone garden gnome extra chromosome metronome dimmadome genome full blown monochrome student loan Indiana Jones overgrown flintstone x and y hormone friend zone sylvester stallone sierra leone autozone professionally seen silver patrone head ass up - |oldgen| made by Scartesu |best upcoming script around| Shut yo skin tone chicken bone google chrome no home flip phone disowned ice cream cone garden gnome extra chromosome metronome dimmadome genome full blown monochrome student loan Indiana Jones overgrown flintstone x and y hormone friend zone sylvester stallone sierra leone autozone professionally seen silver patrone head ass up - |oldgen| made by Scartesu |best upcoming script around| Shut yo skin tone chicken bone google chrome no home flip phone disowned ice cream cone garden gnome extra chromosome metronome dimmadome genome full blown monochrome student loan Indiana Jones overgrown flintstone x and y hormone friend zone sylvester stallone sierra leone autozone professionally seen silver patrone head ass up - |oldgen| made by Scartesu |best upcoming script around| Shut yo skin tone chicken bone google chrome no home flip phone disowned ice cream cone garden gnome extra chromosome metronome dimmadome genome full blown monochrome student loan Indiana Jones overgrown flintstone x and y hormone friend zone sylvester stallone sierra leone autozone professionally seen silver patrone head ass up - |oldgen| made by Scartesu |best upcoming script around| Shut yo skin tone chicken bone google chrome no home flip phone disowned ice cream cone garden gnome extra chromosome metronome dimmadome genome full blown monochrome student loan Indiana Jones overgrown flintstone x and y hormone friend zone sylvester stallone sierra leone autozone professionally seen silver patrone head ass up - |oldgen| made by Scartesu |best upcoming script around| Shut yo skin tone chicken bone google chrome no home flip phone disowned ice cream cone garden gnome extra chromosome metronome dimmadome genome full blown monochrome student loan Indiana Jones overgrown flintstone x and y hormone friend zone sylvester stallone sierra leone autozone professionally seen silver patrone head ass up - |oldgen| made by Scartesu |best upcoming script around| Shut yo skin tone chicken bone google chrome no home flip phone disowned ice cream cone garden gnome extra chromosome metronome dimmadome genome full blown monochrome student loan Indiana Jones overgrown flintstone x and y hormone friend zone sylvester stallone sierra leone autozone professionally seen silver patrone head ass up - |oldgen| made by Scartesu |best upcoming script around| Shut yo skin tone chicken bone google chrome no home flip phone disowned ice cream cone garden gnome extra chromosome metronome dimmadome genome full blown monochrome student loan Indiana Jones overgrown flintstone x and y hormone friend zone sylvester stallone sierra leone autozone professionally seen silver patrone head ass up - |oldgen| made by Scartesu |best upcoming script around| Shut yo skin tone chicken bone google chrome no home flip phone disowned ice cream cone garden gnome extra chromosome metronome dimmadome genome full blown monochrome student loan Indiana Jones overgrown flintstone x and y hormone friend zone sylvester stallone sierra leone autozone professionally seen silver patrone head ass up - |oldgen| made by Scartesu |best upcoming script around| Shut yo skin tone chicken bone google chrome no home flip phone disowned ice cream cone garden gnome extra chromosome metronome dimmadome genome full blown monochrome student loan Indiana Jones overgrown flintstone x and y hormone friend zone sylvester stallone sierra leone autozone professionally seen silver patrone head ass up - |oldgen| made by Scartesu |best upcoming script around| Shut yo skin tone chicken bone google chrome no home flip phone disowned ice cream cone garden gnome extra chromosome metronome dimmadome genome full blown monochrome student loan Indiana Jones overgrown flintstone x and y hormone friend zone sylvester stallone sierra leone autozone professionally seen silver patrone head ass up - |oldgen| made by Scartesu |best upcoming script around| Shut yo skin tone chicken bone google chrome no home flip phone disowned ice cream cone garden gnome extra chromosome metronome dimmadome genome full blown monochrome student loan Indiana Jones overgrown flintstone x and y hormone friend zone sylvester stallone sierra leone autozone professionally seen silver patrone head ass up - |oldgen| made by Scartesu |best upcoming script around| Shut yo skin tone chicken bone google chrome no home flip phone disowned ice cream cone garden gnome extra chromosome metronome dimmadome genome full blown monochrome student loan Indiana Jones overgrown flintstone x and y hormone friend zone sylvester stallone sierra leone autozone professionally seen silver patrone head ass up - |oldgen| made by Scartesu |best upcoming script around|" -- message to spam in dev console
+		game.Players.LocalPlayer.Backpack.BoomBox.Parent = game.Players.LocalPlayer.Character
+		game.Players.LocalPlayer.Character.BoomBox.RemoteEvent:FireServer("play",msg)
+		game.Players.LocalPlayer.Character.Humanoid:UnequipTools()
+
+
+
+		game.Players.LocalPlayer.Backpack.BoomBox.Parent = game.Players.LocalPlayer.Character
+		game.Players.LocalPlayer.Character.Humanoid:UnequipTools()
+		end)
 	end
 end)
 game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
@@ -911,6 +939,7 @@ game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 		local TextLabel_nc = Instance.new("TextLabel")
 		local TextLabel_rj = Instance.new("TextLabel")
 		local TextLabel_c = Instance.new("TextLabel")
+		local TextLabel_cr = Instance.new("TextLabel")
 
 		cmds.Name = "cmds"
 		cmds.Parent = oldgenui
@@ -937,7 +966,7 @@ game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 		TextLabel_4.Position = UDim2.new(-0.00539568346, 0, -0.00303030293, 0)
 		TextLabel_4.Size = UDim2.new(0, 558, 0, 36)
 		TextLabel_4.Font = Enum.Font.Ubuntu
-		TextLabel_4.Text = "OldGen v1 Commands"
+		TextLabel_4.Text = "OldGen v1.5 Commands"
 		TextLabel_4.TextColor3 = Color3.fromRGB(124, 124, 124)
 		TextLabel_4.TextSize = 35.000
 		TextLabel_4.Draggable = true
@@ -946,7 +975,7 @@ game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 		TextLabel_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		TextLabel_5.BackgroundTransparency = 1.000
 		TextLabel_5.BorderSizePixel = 0
-		TextLabel_5.Position = UDim2.new(0.00359712238, 0, 0.13333334, 0)
+		TextLabel_5.Position = UDim2.new(0.0323740989, 0, 0.130303025, 0)
 		TextLabel_5.Size = UDim2.new(0, 114, 0, 50)
 		TextLabel_5.Font = Enum.Font.Ubuntu
 		TextLabel_5.Text = "'walkspeed [Value]"
@@ -957,7 +986,7 @@ game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 		TextLabel_6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		TextLabel_6.BackgroundTransparency = 1.000
 		TextLabel_6.BorderSizePixel = 0
-		TextLabel_6.Position = UDim2.new(0.00719424477, 0, 0.221212119, 0)
+		TextLabel_6.Position = UDim2.new(0.0359712243, 0, 0.221212119, 0)
 		TextLabel_6.Size = UDim2.new(0, 114, 0, 50)
 		TextLabel_6.Font = Enum.Font.Ubuntu
 		TextLabel_6.Text = "'jumppower [Value]"
@@ -1042,7 +1071,7 @@ game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 		TextLabel_12.Text = "'ungod"
 		TextLabel_12.TextColor3 = Color3.fromRGB(191, 191, 191)
 		TextLabel_12.TextSize = 17.000
-		
+
 		TextLabel_nc.Parent = cmds
 		TextLabel_nc.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		TextLabel_nc.BackgroundTransparency = 1.000
@@ -1069,12 +1098,23 @@ game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 		TextLabel_c.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		TextLabel_c.BackgroundTransparency = 1.000
 		TextLabel_c.BorderSizePixel = 0
-		TextLabel_c.Position = UDim2.new(0.21223022, 0, 0.406060606, 0)
+		TextLabel_c.Position = UDim2.new(0.20503597, 0, 0.345454544, 0)
 		TextLabel_c.Size = UDim2.new(0, 114, 0, 50)
 		TextLabel_c.Font = Enum.Font.Ubuntu
 		TextLabel_c.Text = "'clip"
 		TextLabel_c.TextColor3 = Color3.fromRGB(191, 191, 191)
 		TextLabel_c.TextSize = 17.000
+		
+		TextLabel_cr.Parent = cmds
+		TextLabel_cr.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		TextLabel_cr.BackgroundTransparency = 1.000
+		TextLabel_cr.BorderSizePixel = 0
+		TextLabel_cr.Position = UDim2.new(0.21223022, 0, 0.430303037, 0)
+		TextLabel_cr.Size = UDim2.new(0, 114, 0, 50)
+		TextLabel_cr.Font = Enum.Font.Ubuntu
+		TextLabel_cr.Text = "'crash"
+		TextLabel_cr.TextColor3 = Color3.fromRGB(191, 191, 191)
+		TextLabel_cr.TextSize = 17.000
 	end
 end)
 
