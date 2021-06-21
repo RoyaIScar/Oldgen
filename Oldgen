@@ -109,6 +109,7 @@ game.ReplicatedStorage.lIII:Destroy()
 game.ReplicatedStorage.IlIlII:Destroy()
 
 wait(5)
+game.Players.LocalPlayer.Backpack.Glock.Barrel.CanCollide = false
 game:GetService("StarterGui"):SetCore("SendNotification", {
 	Title = "Oldgen";
 	Text = "say \'cmds\ for help";
@@ -380,10 +381,9 @@ game:GetService('RunService').Stepped:connect(function()
 		game.Players.LocalPlayer.Character["Right Arm"].CanCollide = false
 		game.Players.LocalPlayer.Character.Torso.CanCollide = false
 		game.Players.LocalPlayer.Character.Head.CanCollide = false
-		game.Players.LocalPlayer.Character.RightHand.CanCollide = false
-		game.Players.LocalPlayer.Character.LeftHand.CanCollide = false
-		game.Players.LocalPlayer.Character.RightFoot.CanCollide = false
 	end
+	-- glock cancollide thing must alwways be at the end otherwise it breaks cus stupid --
+	game.Players.LocalPlayer.Character.Glock.Barrel.CanCollide = false
 end)
 -- start of commands --
 
