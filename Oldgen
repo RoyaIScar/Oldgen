@@ -106,9 +106,10 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
 
 -- added an actual bypass i made cus why not
 local me = game.Players.LocalPlayer
+local mename = game.Players.LocalPlayer.Name
 
 local Humanoid = Instance.new("Model" ,game.Workspace)
-Humanoid.Name = "Scartesu"
+Humanoid.Name = ""..mename..""
 me.Character:Destroy()
 wait(1.5)
 
