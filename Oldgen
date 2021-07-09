@@ -103,10 +103,17 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
 	Title = "Oldgen";
 	Text = "Welcome To Oldgen, The Worlds Worst And Actual Unskidded Script (Apart From Tops :c)";
 })
-game.ReplicatedStorage.lIIl:Destroy()
-game.ReplicatedStorage.Ban:Destroy()
-game.ReplicatedStorage.lIII:Destroy()
-game.ReplicatedStorage.IlIlII:Destroy()
+
+-- added an actual bypass i made cus why not
+local me = game.Players.LocalPlayer
+
+local Humanoid = Instance.new("Model" ,game.Workspace)
+Humanoid.Name = "Scartesu"
+me.Character:Destroy()
+wait(1.5)
+
+me.Character = Humanoid
+-- end bypass --
 
 wait(5)
 game.Players.LocalPlayer.Backpack.Glock.Barrel.CanCollide = false
@@ -117,7 +124,7 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
 wait(0.5)
 game:GetService("StarterGui"):SetCore("SendNotification", {
 	Title = "Oldgen";
-	Text = "V2 UPDATE: ADDED FLY CREDITS TO VX_F FOR THE FLY (F TO TOGGLE) AND FIXED NOCLIP WHILE HOLDING GLOCK";
+	Text = "V2.5 UPDATE: ADDED CUSTOM ANTICHEAT BYPASS THAT DOESNT HALF BREAK THE GAME, ALSO ADDED SERVERHOP COMMAND";
 })
 
 tag.Name = "tag"
@@ -226,6 +233,24 @@ rs.Stepped:connect(function()
 	end
 end)
 
+-- random serverhop thing, credits to chupachups for sending it yes --
+function GetServers()
+	local a = {}
+	local b = game:HttpGet('https://games.roblox.com/v1/games/'..tostring(game.PlaceId)..'/servers/Public?limit=100&sortOrder=Asc')
+	local c = game.HttpService:JSONDecode(b)
+	for i, v in pairs(c.data) do
+		if c.data.playing ~= 8 then
+			table.insert(a, v.id)
+		end
+	end
+	return a
+end
+function HopServer()
+	local a = GetServers()
+	local b
+	repeat b = a[math.random(1, #a)] until b ~= game.JobId
+	game.TeleportService:TeleportToPlaceInstance(game.PlaceId, b)
+end
 
 -- Scripts:
 
@@ -595,6 +620,11 @@ end)
 game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 	if msg == ""..prefix.."rejoin" then
 		game:GetService('TeleportService'):Teleport(game.PlaceId)
+	end
+end)
+game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
+	if msg == ""..prefix.."serverhop" then
+		HopServer()
 	end
 end)
 game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
@@ -1037,6 +1067,7 @@ game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 		local TextLabel_rj = Instance.new("TextLabel")
 		local TextLabel_c = Instance.new("TextLabel")
 		local TextLabel_cr = Instance.new("TextLabel")
+		local TextLabel_se = Instance.new("TextLabel")
 
 		cmds.Name = "cmds"
 		cmds.Parent = oldgenui
@@ -1063,7 +1094,7 @@ game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 		TextLabel_4.Position = UDim2.new(-0.00539568346, 0, -0.00303030293, 0)
 		TextLabel_4.Size = UDim2.new(0, 558, 0, 36)
 		TextLabel_4.Font = Enum.Font.Ubuntu
-		TextLabel_4.Text = "OldGen v2 Commands"
+		TextLabel_4.Text = "OldGen v2.5 Commands"
 		TextLabel_4.TextColor3 = Color3.fromRGB(124, 124, 124)
 		TextLabel_4.TextSize = 35.000
 		TextLabel_4.Draggable = true
@@ -1212,6 +1243,17 @@ game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 		TextLabel_cr.Text = "'crash"
 		TextLabel_cr.TextColor3 = Color3.fromRGB(191, 191, 191)
 		TextLabel_cr.TextSize = 17.000
+		
+		TextLabel_se.Parent = cmds
+		TextLabel_se.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		TextLabel_se.BackgroundTransparency = 1.000
+		TextLabel_se.BorderSizePixel = 0
+		TextLabel_se.Position = UDim2.new(0.246402875, 0, 0.518181801, 0)
+		TextLabel_se.Size = UDim2.new(0, 114, 0, 50)
+		TextLabel_se.Font = Enum.Font.Ubuntu
+		TextLabel_se.Text = "'serverhop"
+		TextLabel_se.TextColor3 = Color3.fromRGB(191, 191, 191)
+		TextLabel_se.TextSize = 17.000
 		
 	end
 end)
