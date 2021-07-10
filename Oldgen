@@ -572,9 +572,7 @@ game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 			Title = "Oldgen";
 			Text = "Walkspeed Set To "..ws.."";
 		})
-		while true do wait(0.1)
-			game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = ws
-		end
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = ws
 	end
 end)
 game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
@@ -584,10 +582,9 @@ game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 			Title = "Oldgen";
 			Text = "Jumppower Set To "..jp.."";
 		})
-		while true do wait(0.1)
-			local jp = msg:sub(12)
-			game.Players.LocalPlayer.Character.Humanoid.JumpPower = jp
-		end
+		
+		game.Players.LocalPlayer.Character.Humanoid.JumpPower = jp
+		
 	end
 end)
 game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
@@ -607,15 +604,6 @@ game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 			Text = "Noclip Disabled";
 		})
 		noclip = false
-	end
-end)
-game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
-	if msg:sub(1, 11) == "" .. prefix .. "flyspeed " then
-		speed = msg:sub(12)
-		game:GetService("StarterGui"):SetCore("SendNotification", {
-			Title = "Oldgen";
-			Text = "Flyspeed Set To "..speed.."";
-		})
 	end
 end)
 game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
@@ -683,6 +671,39 @@ game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 		})
 		game.Players.LocalPlayer.Character:BreakJoints()
 		god = true
+	end
+end)
+
+game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
+	if msg == "" ..prefix.."bypass" then
+		game:GetService("StarterGui"):SetCore("SendNotification", {
+			Title = "Oldgen";
+			Text = "Bypass Enabled";
+		})
+		local me = game.Players.LocalPlayer
+		local mename = game.Players.LocalPlayer.Name
+
+		local Humanoid = Instance.new("Model" ,game.Workspace)
+		Humanoid.Name = ""..mename..""
+		me.Character:Destroy()
+		wait(1.5)
+
+		me.Character = Humanoid
+	end
+end)
+
+game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
+	if msg == "" ..prefix.."unbypass" then
+		game:GetService("StarterGui"):SetCore("SendNotification", {
+			Title = "Oldgen";
+			Text = "Bypass Disabled";
+		})
+		for _,v in pairs(game.workspace:GetChildren()) do
+			if v.Name == ""..mename.."" then
+				game.workspace[mename].Parent = me
+				me.Character:Destroy()
+			end
+		end
 	end
 end)
 game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
@@ -1069,6 +1090,8 @@ game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 		local TextLabel_c = Instance.new("TextLabel")
 		local TextLabel_cr = Instance.new("TextLabel")
 		local TextLabel_se = Instance.new("TextLabel")
+		local TextLabel_by = Instance.new("TextLabel")
+		local TextLabel_un = Instance.new("TextLabel")
 
 		cmds.Name = "cmds"
 		cmds.Parent = oldgenui
@@ -1255,6 +1278,28 @@ game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 		TextLabel_se.Text = "'serverhop"
 		TextLabel_se.TextColor3 = Color3.fromRGB(191, 191, 191)
 		TextLabel_se.TextSize = 17.000
+		
+		TextLabel_by.Parent = cmds
+		TextLabel_by.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		TextLabel_by.BackgroundTransparency = 1.000
+		TextLabel_by.BorderSizePixel = 0
+		TextLabel_by.Position = UDim2.new(0.226618707, 0, 0.593939424, 0)
+		TextLabel_by.Size = UDim2.new(0, 114, 0, 50)
+		TextLabel_by.Font = Enum.Font.Ubuntu
+		TextLabel_by.Text = "'bypass"
+		TextLabel_by.TextColor3 = Color3.fromRGB(191, 191, 191)
+		TextLabel_by.TextSize = 17.000
+		
+		TextLabel_un.Parent = cmds
+		TextLabel_un.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		TextLabel_un.BackgroundTransparency = 1.000
+		TextLabel_un.BorderSizePixel = 0
+		TextLabel_un.Position = UDim2.new(0.242805749, 0, 0.669696987, 0)
+		TextLabel_un.Size = UDim2.new(0, 114, 0, 50)
+		TextLabel_un.Font = Enum.Font.Ubuntu
+		TextLabel_un.Text = "'unbypass"
+		TextLabel_un.TextColor3 = Color3.fromRGB(191, 191, 191)
+		TextLabel_un.TextSize = 17.000
 		
 	end
 end)
