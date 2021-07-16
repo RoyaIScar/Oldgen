@@ -501,66 +501,29 @@ game:GetService('RunService').Stepped:connect(function()
 end)
 -- start of commands --
 
--- Gui to Lua
--- Version: 3.2
+local health = Instance.new("ScreenGui");local Frame = Instance.new("Frame");local TextLabel = Instance.new("TextLabel")
+health.Name = "health";health.Parent = game.CoreGui
+Frame.Parent = health;Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255);Frame.BackgroundTransparency = 1.000;Frame.Position = UDim2.new(0.353333324, 0, 0.734969318, 0);Frame.Size = UDim2.new(0, 564, 0, 36)
+TextLabel.Parent = Frame;TextLabel.BackgroundColor3 = Color3.fromRGB(5, 5, 5);TextLabel.BackgroundTransparency = 1.000;TextLabel.Position = UDim2.new(-0.0496453904, 0, -0.055555556, 0);TextLabel.Size = UDim2.new(0, 538, 0, 35);TextLabel.Font = Enum.Font.Ubuntu;TextLabel.TextColor3 = Color3.fromRGB(100, 5, 100);TextLabel.TextSize = 45.000
 
--- Instances:
+local l = game.Players.LocalPlayer
 
-local health = Instance.new("ScreenGui")
-local Frame = Instance.new("Frame")
-local TextLabel = Instance.new("TextLabel")
-
---Properties:
-
-health.Name = "health"
-health.Parent = game.CoreGui
-
-Frame.Parent = health
-Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Frame.BackgroundTransparency = 1.000
-Frame.Position = UDim2.new(0.353333324, 0, 0.734969318, 0)
-Frame.Size = UDim2.new(0, 564, 0, 36)
-
-TextLabel.Parent = Frame
-TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel.BackgroundTransparency = 1.000
-TextLabel.Position = UDim2.new(-0.0496453904, 0, -0.055555556, 0)
-TextLabel.Size = UDim2.new(0, 538, 0, 35)
-TextLabel.Font = Enum.Font.Ubuntu
-TextLabel.Text = "Health:"
-TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
-TextLabel.TextSize = 45.000
-
--- Scripts:
-
-local function FPHRPSE_fake_script() -- TextLabel.LocalScript 
-	local script2 = Instance.new('LocalScript', TextLabel)
-
-	function zigzag(X) return math.acos(math.cos(X*math.pi))/math.pi end
-	
-	counter2 = 0
-	
-	while wait(0.1)do
-		script2.Parent.TextColor3 = Color3.fromHSV(zigzag(counter),1,1)
-	
-		counter2 = counter2 + 0.01
-		
-		while true do 
-		    wait(0.2)
-local health = game.Players.LocalPlayer.Character.Humanoid.Health
-TextLabel.Text = "Health: "..health..""
-
-if health == 0 then
-wait(7)
-TextLabel.Text = "Health: "..health..""
+if l.Character and l.Character:FindFirstChild("Humanoid") then
+    local hum = l.Character.Humanoid
+    TextLabel.Text = string.format("Health: %d", hum.Health)
+    local con = hum:GetPropertyChangedSignal("Health"):Connect(function()
+        TextLabel.Text = string.format("Health: %d", hum.Health)
+    end)
 end
-end
-	end
-end
-coroutine.wrap(FPHRPSE_fake_script)()
-    
 
-
+l.CharacterAdded:Connect(function(c)
+    repeat wait() until c:FindFirstChild("Humanoid")
+    local hum = c.Humanoid
+    TextLabel.Text = string.format("Health: %d", hum.Health)
+    local con = hum:GetPropertyChangedSignal("Health"):Connect(function()
+        TextLabel.Text = string.format("Health: %d", hum.Health)
+    end)
+end)
 
 
 
