@@ -550,8 +550,8 @@ local function FPHRPSE_fake_script() -- TextLabel.LocalScript
 local health = game.Players.LocalPlayer.Character.Humanoid.Health
 TextLabel.Text = "Health: "..health..""
 
-if game.Players.LocalPlayer.Character == Humanoid then
-
+if health == 0 then
+wait(7)
 TextLabel.Text = "Health: "..health..""
 
 end
