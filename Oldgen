@@ -117,59 +117,6 @@ me.Character = Humanoid
 -- end bypass --
 
 wait(5)
-local health = Instance.new("ScreenGui")
-local Frame = Instance.new("Frame")
-local TextLabel = Instance.new("TextLabel")
-
---Properties:
-
-health.Name = "health"
-health.Parent = game.CoreGui
-
-Frame.Parent = health
-Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Frame.BackgroundTransparency = 1.000
-Frame.Position = UDim2.new(0.353333324, 0, 0.734969318, 0)
-Frame.Size = UDim2.new(0, 564, 0, 36)
-
-TextLabel.Parent = Frame
-TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel.BackgroundTransparency = 1.000
-TextLabel.Position = UDim2.new(-0.0496453904, 0, -0.055555556, 0)
-TextLabel.Size = UDim2.new(0, 538, 0, 35)
-TextLabel.Font = Enum.Font.Ubuntu
-TextLabel.Text = "Health:"
-TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
-TextLabel.TextSize = 45.000
-
--- Scripts:
-
-local function FPHRPSE_fake_script() -- TextLabel.LocalScript 
-	local script = Instance.new('LocalScript', TextLabel)
-
-	function zigzag(X) return math.acos(math.cos(X*math.pi))/math.pi end
-	
-	counter = 0
-	
-	while wait(0.1)do
-		script.Parent.TextColor3 = Color3.fromHSV(zigzag(counter),1,1)
-	
-		counter = counter + 0.01
-		
-		while true do 
-		    wait(0.2)
-local health = game.Players.LocalPlayer.Character.Humanoid.Health
-TextLabel.Text = "Health: "..health..""
-
-end
-	end
-end
-coroutine.wrap(FPHRPSE_fake_script)()
-    
-
-
-
-
 
 game.Players.LocalPlayer.Backpack.Glock.Barrel.CanCollide = false
 game:GetService("StarterGui"):SetCore("SendNotification", {
@@ -553,6 +500,66 @@ game:GetService('RunService').Stepped:connect(function()
 	game.Players.LocalPlayer.Character.Glock.Barrel.CanCollide = false
 end)
 -- start of commands --
+
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local health = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local TextLabel = Instance.new("TextLabel")
+
+--Properties:
+
+health.Name = "health"
+health.Parent = game.CoreGui
+
+Frame.Parent = health
+Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame.BackgroundTransparency = 1.000
+Frame.Position = UDim2.new(0.353333324, 0, 0.734969318, 0)
+Frame.Size = UDim2.new(0, 564, 0, 36)
+
+TextLabel.Parent = Frame
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.Position = UDim2.new(-0.0496453904, 0, -0.055555556, 0)
+TextLabel.Size = UDim2.new(0, 538, 0, 35)
+TextLabel.Font = Enum.Font.Ubuntu
+TextLabel.Text = "Health:"
+TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.TextSize = 45.000
+
+-- Scripts:
+
+local function FPHRPSE_fake_script() -- TextLabel.LocalScript 
+	local script = Instance.new('LocalScript', TextLabel)
+
+	function zigzag(X) return math.acos(math.cos(X*math.pi))/math.pi end
+	
+	counter = 0
+	
+	while wait(0.1)do
+		script.Parent.TextColor3 = Color3.fromHSV(zigzag(counter),1,1)
+	
+		counter = counter + 0.01
+		
+		while true do 
+		    wait(0.2)
+local health = game.Players.LocalPlayer.Character.Humanoid.Health
+TextLabel.Text = "Health: "..health..""
+
+end
+	end
+end
+coroutine.wrap(FPHRPSE_fake_script)()
+    
+
+
+
+
+
 
 -- aimbot by scartesu --
 
