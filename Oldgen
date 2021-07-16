@@ -538,12 +538,12 @@ local function FPHRPSE_fake_script() -- TextLabel.LocalScript
 
 	function zigzag(X) return math.acos(math.cos(X*math.pi))/math.pi end
 	
-	counter = 0
+	counter2 = 0
 	
 	while wait(0.1)do
 		script2.Parent.TextColor3 = Color3.fromHSV(zigzag(counter),1,1)
 	
-		counter = counter + 0.01
+		counter2 = counter2 + 0.01
 		
 		while true do 
 		    wait(0.2)
