@@ -553,7 +553,7 @@ TextLabel.Text = "Health: "..health..""
 if health == 0 then
 wait(7)
 TextLabel.Text = "Health: "..health..""
-
+end
 end
 	end
 end
