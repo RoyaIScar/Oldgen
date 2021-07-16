@@ -534,14 +534,14 @@ TextLabel.TextSize = 45.000
 -- Scripts:
 
 local function FPHRPSE_fake_script() -- TextLabel.LocalScript 
-	local script = Instance.new('LocalScript', TextLabel)
+	local script2 = Instance.new('LocalScript', TextLabel)
 
 	function zigzag(X) return math.acos(math.cos(X*math.pi))/math.pi end
 	
 	counter = 0
 	
 	while wait(0.1)do
-		script.Parent.TextColor3 = Color3.fromHSV(zigzag(counter),1,1)
+		script2.Parent.TextColor3 = Color3.fromHSV(zigzag(counter),1,1)
 	
 		counter = counter + 0.01
 		
