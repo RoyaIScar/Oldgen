@@ -754,19 +754,19 @@ game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 		god = true 
 		game.Players.LocalPlayer.Character:BreakJoints()
 		wait(7.8)
-	_G.conn = game:GetService("RunService").Heartbeat:Connect(function()
-	         
-                          local msg = string.rep("的", 60000) -- credit to vx for showing that special chars make the script laggier
-			  game.Players.LocalPlayer.Backpack.BoomBox.RemoteEvent:FireServer("play", longboi)
+	local l = game.Players.LocalPlayer
+local longboi = string.rep("的", 60000)
+l.Backpack.BoomBox.Parent = l.Character
+l.Character.BoomBox.RemoteEvent:FireServer("play", longboi)
+l.Character.BoomBox.Parent = l.Backpack
 game["Run Service"].Stepped:connect(function()
     for i = 1, 5 do
-        game.Players.LocalPlayer.Backpack.BoomBox.Parent = l.Character
+        l.Backpack.BoomBox.Parent = l.Character
         game["Run Service"].Stepped:wait()
         l.Character.BoomBox.Parent = l.Backpack
     end
 end)
-		end)
-	end
+    end
 end)
 game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 	if msg == "" ..prefix.."gripgui" then
