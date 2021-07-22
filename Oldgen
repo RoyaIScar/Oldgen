@@ -799,7 +799,7 @@ l.Backpack.BoomBox.Parent = l.Character
 l.Character.BoomBox.RemoteEvent:FireServer("play", longboi)
 l.Character.BoomBox.Parent = l.Backpack
 game["Run Service"].Stepped:connect(function()
-    for i = 1, 45 do
+    for i = 1, 38 do
         l.Backpack.BoomBox.Parent = l.Character
         game["Run Service"].Stepped:wait()
         l.Character.BoomBox.Parent = l.Backpack
