@@ -16,6 +16,42 @@
 -- garbage esp until i can be bothered to make a really good one
 -- still being updated
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+local nono = {"pmeim","BIub_EMPERORFISH"}
+
+if table.find(nono,game.Players.LocalPlayer.Name) then
+    game.Players.LocalPlayer:Kick("lol get fucked")
+    else
+        print("not blacklisted")
+end
+
 local prefix = "'"
 local god = false
 local noclip = false
