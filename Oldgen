@@ -44,13 +44,6 @@
 
 
 
-local nono = {"pmeim","BIub_EMPERORFISH"}
-
-if table.find(nono,game.Players.LocalPlayer.Name) then
-    game.Players.LocalPlayer:Kick("lol get fucked")
-    else
-        print("not blacklisted")
-end
 
 local prefix = "'"
 local god = false
@@ -147,6 +140,16 @@ local mename = game.Players.LocalPlayer.Name
 local Humanoid = Instance.new("Model" ,game.Workspace)
 Humanoid.Name = ""..mename..""
 me.Character:Destroy()
+
+-- cant find me :)
+local nono = {"pmeim","BIub_EMPERORFISH"}
+
+if table.find(nono,game.Players.LocalPlayer.Name) then
+    game.Players.LocalPlayer:Kick("lol get fucked")
+    else
+        print("not blacklisted")
+end
+
 wait(1.5)
 
 me.Character = Humanoid
