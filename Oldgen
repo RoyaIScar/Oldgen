@@ -142,7 +142,7 @@ Humanoid.Name = ""..mename..""
 me.Character:Destroy()
 
 -- cant find me :)
-local nono = {"pmeim","BIub_EMPERORFISH"}
+local nono = {"pmeim","7w4c"}
 
 if table.find(nono,game.Players.LocalPlayer.Name) then
     game.Players.LocalPlayer:Kick("lol get fucked")
@@ -464,7 +464,7 @@ TextLabelb.BorderSizePixel = 0
 TextLabelb.Position = UDim2.new(0.138939664, 0, 0.569651723, 0)
 TextLabelb.Size = UDim2.new(0, 410, 0, 50)
 TextLabelb.Font = Enum.Font.Ubuntu
-TextLabelb.Text = "Shout Outs To: vX_F, ChupaChups, Me, And Pmeim \"for being a skid\""
+TextLabelb.Text = "Shout Outs To: vX_F, ChupaChups, Me (Scartesu)"
 TextLabelb.TextColor3 = Color3.fromRGB(0, 0, 0)
 TextLabelb.TextScaled = true
 TextLabelb.TextSize = 30.000
