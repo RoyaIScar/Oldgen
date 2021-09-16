@@ -536,7 +536,7 @@ game:GetService('RunService').Stepped:connect(function()
 		game.Players.LocalPlayer.Character.Head.CanCollide = false
 	end
 	
-	pcall(game.Players.LocalPlayer.Character.Glock.Barrel.CanCollide = false)
+	game.Players.LocalPlayer.Character.Glock.Barrel.CanCollide = false
 end)
 -- start of commands --
 
