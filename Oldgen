@@ -535,8 +535,8 @@ game:GetService('RunService').Stepped:connect(function()
 		game.Players.LocalPlayer.Character.Torso.CanCollide = false
 		game.Players.LocalPlayer.Character.Head.CanCollide = false
 	end
-	-- glock cancollide thing must alwways be at the end otherwise it breaks cus stupid --
-	game.Players.LocalPlayer.Character.Glock.Barrel.CanCollide = false
+	
+	pcall(game.Players.LocalPlayer.Character.Glock.Barrel.CanCollide = false)
 end)
 -- start of commands --
 
