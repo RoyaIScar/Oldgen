@@ -12,8 +12,9 @@
 
 
 -- a garbage script made by Scartesu/RoyaIScar
--- includes a never seen before "invisible" script and a very good aimbot
--- garbage esp until i can be bothered to make a really good one
+
+-- updated at 24/09/21 --
+
 -- still being updated
 
 
@@ -165,7 +166,7 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
 wait(0.5)
 game:GetService("StarterGui"):SetCore("SendNotification", {
 	Title = "Oldgen";
-	Text = "V3 UPDATE: ADDED HEALTH BAR, MORE FEATURES TO COME";
+	Text = "Small Update: semi fixed invis script, crash broken thanks to snakeworl finally updating game";
 })
 
 tag.Name = "tag"
@@ -705,8 +706,7 @@ game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 		local KO = Instance.new ("BoolValue", newchar)
 		KO.Name = "KO"
 
-		Character.HumanoidRootPart.RootAttachment:Destroy()
-		Character.HumanoidRootPart.RootJoint:Destroy()
+	game.Players.LocalPlayer.Character.HumanoidRootPart:Destroy()
 		Character.Torso.Anchored = true
 		Character.Head.CanCollide = false
 		Character.Torso.CanCollide = false
@@ -718,13 +718,13 @@ game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 		game.Players.LocalPlayer.Character = newchar
 		game.Players.LocalPlayer.Backpack.Glock.Parent = newchar
 		game.Players.LocalPlayer.Backpack.Shotty.Parent = newchar
-		wait(10)
+		wait(5)
 		game:GetService("StarterGui"):SetCore("SendNotification", {
 			Title = "Oldgen";
 			Text = "PermaDeath/Invis Process Complete, Wait Until Your Character Falls Through The Floor, This Could Take 3-10 Seconds";
 		})
 
-		wait(15)
+		wait(6)
 		workspace.CurrentCamera.CameraSubject = newchar
 	end
 end)
