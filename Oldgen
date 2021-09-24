@@ -692,8 +692,8 @@ game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 			Title = "Oldgen";
 			Text = "PermaDeath/Invisible Script Enabled, Please Wait For It To Complete";
 		})
-		wait(0.5)
-		 game.Players.LocalPlayer.Character.HumanoidRootPart.Position = Vector3.new(-9e9,-9e9,-9e9)
+		game.Players.LocalPlayer.Character.HumanoidRootPart.Position = Vector3.new(9999e9999,9999e9999,9999e9999)
+        	game.Players.LocalPlayer.Character.Torso.Anchored = true
 		-- permadeath/invis method --
 		local Character = game:GetService("Players").LocalPlayer.Character
 		local newchar = Instance.new("Model", workspace)
@@ -703,19 +703,11 @@ game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 		Torso.Name = "Torso"
 		local Humanoid = Instance.new("Humanoid", newchar)
 		Humanoid.Name = "Humanoid"
-		local KO = Instance.new ("BoolValue", newchar)
-		KO.Name = "KO"
+	wait(0.5)
 	game.Players.LocalPlayer.Character.HumanoidRootPart:Destroy()
-		Character.Torso.Anchored = true
-		Character.Head.CanCollide = false
-		Character.Torso.CanCollide = false
-		Character["Left Leg"].CanCollide = false
-		Character["Right Leg"].CanCollide = false
-		Character["Left Arm"].CanCollide = false
-		Character["Right Arm"].CanCollide = false
 		wait(3)
 		game.Players.LocalPlayer.Character = newchar
-		wait(5)
+		wait(2)
 		game:GetService("StarterGui"):SetCore("SendNotification", {
 			Title = "Oldgen";
 			Text = "PermaDeath/Invis Process Complete, Wait For Your Camera To Go To Your New Character Then Move Around";
