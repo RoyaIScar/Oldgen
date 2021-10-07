@@ -311,7 +311,9 @@ local function GBVO_fake_script() -- TextLabel.LocalScript
 end
 coroutine.wrap(GBVO_fake_script)()
 
--- garbage esp until i can be bothered to make a good one
+-- finally updated garbage esp cusi  was lazy enough
+
+
 local camera = game:GetService("Workspace").CurrentCamera
 local CurrentCamera =workspace.CurrentCamera
 local pp = game.Players.LocalPlayer
@@ -336,13 +338,19 @@ for _,v in pairs(game.Players:GetChildren()) do
 
 
 
-	mbox.Color = Color3.fromRGB(255,60,50)
+	mbox.Color = Color3.fromRGB(107,50,124)
 
 
 	mbox.Thickness = 1
 	mbox.Transparency = 1
 	mbox.Filled = false
-
+    
+    local names = Drawing.new("Text")
+    names.Text = v.Name
+    names.Color = Color3.fromRGB(123,0,123)
+   names.Font = 3
+   names.Visible = false
+   
 	function esp()
 		game:GetService("RunService").RenderStepped:connect(function()
 			if v.Character ~= nil and v.Character:FindFirstChild("Humanoid") ~= nil and v.Character:FindFirstChild("HumanoidRootPart") ~= nil and v ~= pp and v.Character.Humanoid.Health > 0 then
@@ -360,16 +368,21 @@ for _,v in pairs(game.Players:GetChildren()) do
 					mbox.Size = Vector2.new(1000 / rootpos.Z, headpos.Y - legpos.Y)
 					mbox.Position = Vector2.new(rootpos.X - mbox.Size.X /2, rootpos.Y - mbox.Size.Y / 2)
 					mbox.Visible = true
-
+                    
+                    
+					names.Position = Vector2.new(headpos.X,headpos.Y)
+					names.Visible = true   
 
 				else
 					BoxOutline.Visible = false
 					mbox.Visible = false
+					names.Visible = false
 
 				end
 			else
 				BoxOutline.Visible = false
 				mbox.Visible = false
+				names.Visible = false
 
 			end
 		end)
@@ -393,14 +406,18 @@ game.Players.PlayerAdded:connect(function(v)
 
 
 
-	mbox.Color = Color3.fromRGB(255,60,50)
+	mbox.Color = Color3.fromRGB(107,50,124)
 
 
 	mbox.Thickness = 1
 	mbox.Transparency = 1
 	mbox.Filled = false
 
-
+    local names = Drawing.new("Text")
+    names.Text = v.Name
+    names.Color = Color3.fromRGB(123,0,123)
+   names.Font = 3
+   names.Visible = false
 
 	function esp()
 		game:GetService("RunService").RenderStepped:connect(function()
@@ -419,16 +436,21 @@ game.Players.PlayerAdded:connect(function(v)
 					mbox.Size = Vector2.new(1000 / rootpos.Z, headpos.Y - legpos.Y)
 					mbox.Position = Vector2.new(rootpos.X - mbox.Size.X /2, rootpos.Y - mbox.Size.Y / 2)
 					mbox.Visible = true
-
+                    
+                    
+					names.Position = Vector2.new(headpos.X,headpos.Y)
+					names.Visible = true 
 
 				else
 					BoxOutline.Visible = false
 					mbox.Visible = false
+					names.Visible = false
 
 				end
 			else
 				BoxOutline.Visible = false
 				mbox.Visible = false
+				names.Visible = false
 
 			end
 		end)
@@ -497,32 +519,6 @@ local chatFrame = game:GetService("Players").LocalPlayer.PlayerGui.Chat.Frame
 chatFrame.ChatChannelParentFrame.Visible=true
 chatFrame.ChatBarParentFrame.Position = chatFrame.ChatChannelParentFrame.Position+UDim2.new(UDim.new(),chatFrame.ChatChannelParentFrame.Size.Y)
 
--- I DID NOT MAKE THIS I DID NOT MAKE THIS I DID NOT MAKE THIS I DID NOT MAKE THIS I DID NOT MAKE THIS I DID NOT MAKE THIS I DID NOT MAKE THIS --
--- CREDITS TO WHOEVER DID THOUGH --
-function GetPlayer(String)
-	local Found = {}
-	local strl = String:lower()
-	if strl == "all" then
-		for i, v in pairs(game.Players:GetPlayers()) do
-			table.insert(Found, v)
-		end
-	elseif strl == "others" then
-		for i, v in pairs(game.Players:GetPlayers()) do
-			if v.Name ~= game.Players.LocalPlayer.Name then
-				table.insert(Found, v)
-			end
-		end
-	else
-		for i, v in pairs(game.Players:GetPlayers()) do
-			if v.Name:lower():sub(1, #String) == String:lower() then
-				table.insert(Found, v)
-			end
-		end
-	end
-	return Found
-end
--- end of what is not fucking mine --
-
 -- runservice --
 game:GetService('RunService').Stepped:connect(function()
 	if god == true then
@@ -536,7 +532,9 @@ game:GetService('RunService').Stepped:connect(function()
 		game.Players.LocalPlayer.Character.Torso.CanCollide = false
 		game.Players.LocalPlayer.Character.Head.CanCollide = false
 	end
+pcall(function()
 game.Players.LocalPlayer.Character.Glock.Barrel.CanCollide = false
+ end)
 end)
 -- start of commands --
 
