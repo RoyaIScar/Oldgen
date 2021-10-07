@@ -166,7 +166,7 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
 wait(0.5)
 game:GetService("StarterGui"):SetCore("SendNotification", {
 	Title = "Oldgen";
-	Text = "Small Update: semi fixed invis script, crash broken thanks to snakeworl finally updating game";
+	Text = "small-ish update: updated esp and removed errors, might add new crash method";
 })
 
 tag.Name = "tag"
