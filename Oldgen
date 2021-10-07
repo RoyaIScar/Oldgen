@@ -166,7 +166,7 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
 wait(0.5)
 game:GetService("StarterGui"):SetCore("SendNotification", {
 	Title = "Oldgen";
-	Text = "small-ish update: updated esp and removed errors, might add new crash method";
+	Text = "small-ish update: updated esp and removed errors, might add new crash method and client bridge";
 })
 
 tag.Name = "tag"
