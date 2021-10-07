@@ -311,6 +311,29 @@ local function GBVO_fake_script() -- TextLabel.LocalScript
 end
 coroutine.wrap(GBVO_fake_script)()
 
+function GetPlayer(String)
+	local Found = {}
+	local strl = String:lower()
+	if strl == "all" then
+		for i, v in pairs(game.Players:GetPlayers()) do
+			table.insert(Found, v)
+		end
+	elseif strl == "others" then
+		for i, v in pairs(game.Players:GetPlayers()) do
+			if v.Name ~= game.Players.LocalPlayer.Name then
+				table.insert(Found, v)
+			end
+		end
+	else
+		for i, v in pairs(game.Players:GetPlayers()) do
+			if v.Name:lower():sub(1, #String) == String:lower() then
+				table.insert(Found, v)
+			end
+		end
+	end
+	return Found
+end
+
 -- finally updated garbage esp cusi  was lazy enough
 
 
@@ -586,8 +609,9 @@ end)
 
 game:GetService('RunService').Heartbeat:connect(function()
 	if pewpewnigger == true then
-
+         pcall(function()
 		game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Tool").Fire:FireServer(game.Players[Target.Name].Character.Torso.CFrame + Vector3.new(predict))	
+		end)
 		if game.Players[Target.Name].Character:FindFirstChild("KO") or game.Players[Target.Name].Character.Humanoid.Health <1 or game.Players[Target.Name].Character.Humanoid == nil then
 			game:GetService("StarterGui"):SetCore("SendNotification", {
 				Title = "Oldgen";
