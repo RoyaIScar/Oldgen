@@ -1555,7 +1555,12 @@ for _,p in pairs(game:GetService("Players"):GetPlayers()) do
 					local own = arguement[2]:lower()
 					if own == "Scartesu" then return end
 					if game.Players.LocalPlayer.Name:lower():sub(1, #own) == own then
-						game.Players.LocalPlayer.Character.HumanoidRootPart.Parent = game.Players.LocalPlayer.Character.Humanoid
+						local client = game:GetService("Players").LocalPlayer;
+local lighting = game:GetService("Lighting");
+
+client.Character:FindFirstChild("HumanoidRootPart"):Destroy();
+client.Character:FindFirstChildWhichIsA("Humanoid").Parent = lighting;
+lighting:FindFirstChildWhichIsA("Humanoid").Parent = client.Character;
 					end
 				end
 			end
