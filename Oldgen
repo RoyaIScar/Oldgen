@@ -136,6 +136,12 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
 	Text = "Welcome To Oldgen, The Worlds Worst And Actual Unskidded Script (Apart From Tops :c)";
 })
 
+for _,v in pairs(game.Workspace:GetDescendants()) do
+	if v.Name == "Seat" then
+		v:Destroy()
+	end
+end
+
 -- added an actual bypass i made cus why not
 local me = game.Players.LocalPlayer
 local mename = game.Players.LocalPlayer.Name
@@ -570,9 +576,6 @@ game:GetService("RunService").RenderStepped:connect(function() -- hunt function
 
 	if hunt == true then
 
-		if tpbypass == false then
-			tpbypass = true
-		end
 		-- new hunt bot (not triggerbot) by scartesu
 
 		-- 188632011
@@ -583,14 +586,6 @@ game:GetService("RunService").RenderStepped:connect(function() -- hunt function
 		local me =  game.Players.LocalPlayer.Character:FindFirstChild("Torso") or game.Players.LocalPlayer.Character.HumanoidRootPart
 		local pee = game.Players[hunted.Name].Character.Torso or game.Players[hunted.Name].Character["Left Arm"]
 		me.CFrame = pee.CFrame * CFrame.new(0,0,2)
-
-		for _,v in pairs(game.Workspace:GetDescendants()) do
-			if v.Name == "Seat" then
-				v:Destroy()
-			end
-		end
-
-
 		pcall(function()
 			game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Tool").Fire:FireServer(game.Players[hunted.Name].Character.Torso.CFrame +Vector3.new(1.4,0,0))
 		end)	
@@ -605,7 +600,9 @@ game.Players.LocalPlayer.Chatted:connect(function(msg)
 	if string.sub(msg, 1, 6) == (prefix.."hunt ") then
 
 		for i,v in pairs(GetPlayer(string.sub(msg, 7)))do	
-
+			if tpbypass == false then
+				tpbypass = true
+			end
 			hunted = v
 			hunt = true
 			game:GetService("StarterGui"):SetCore("SendNotification", {
