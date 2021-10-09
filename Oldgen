@@ -50,6 +50,7 @@ local prefix = "'"
 local god = false
 local noclip = false
 local tpbypass = false
+local hunt = false
 
 local oldgenui = Instance.new("ScreenGui")
 local oldgen = Instance.new("ScreenGui")
@@ -167,7 +168,7 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
 wait(0.5)
 game:GetService("StarterGui"):SetCore("SendNotification", {
 	Title = "Oldgen";
-	Text = "big update: added tpbypass, made fly more stable but can only be used with tpbypass, added list of keybinds on credits";
+	Text = "big update: added tpbypass, made fly more stable but can only be used with tpbypass, added list of keybinds on credits, added hunt command";
 })
 
 tag.Name = "tag"
@@ -257,26 +258,26 @@ uis.InputEnded:connect(function(input)
 	end
 end)
 rs.Stepped:connect(function()
-	
 
-	
+
+
 	if flysettings.fly == true then
 		if tpbypass == false then
 		else
-			
-		ChangeStates(false)
-		l.Character.Torso.Velocity = Vector3.new(0, 0, 0)
-		if flysettings.directions.w == true then
-			TweenToPos(l.Character.Torso.CFrame.p + workspace.CurrentCamera.CoordinateFrame.lookVector * 2, flysettings.speed)
-		end
-		if flysettings.directions.s == true then
-			TweenToPos(l.Character.Torso.CFrame.p - workspace.CurrentCamera.CoordinateFrame.lookVector * 2, flysettings.speed)
-		end
-		if flysettings.directions.a == true then
-			TweenToPos(l.Character.Torso.CFrame.p - workspace.CurrentCamera.CoordinateFrame.rightVector * 2, flysettings.speed)
-		end
-		if flysettings.directions.d == true then
-			TweenToPos(l.Character.Torso.CFrame.p + workspace.CurrentCamera.CoordinateFrame.rightVector * 2, flysettings.speed)
+
+			ChangeStates(false)
+			l.Character.Torso.Velocity = Vector3.new(0, 0, 0)
+			if flysettings.directions.w == true then
+				TweenToPos(l.Character.Torso.CFrame.p + workspace.CurrentCamera.CoordinateFrame.lookVector * 2, flysettings.speed)
+			end
+			if flysettings.directions.s == true then
+				TweenToPos(l.Character.Torso.CFrame.p - workspace.CurrentCamera.CoordinateFrame.lookVector * 2, flysettings.speed)
+			end
+			if flysettings.directions.a == true then
+				TweenToPos(l.Character.Torso.CFrame.p - workspace.CurrentCamera.CoordinateFrame.rightVector * 2, flysettings.speed)
+			end
+			if flysettings.directions.d == true then
+				TweenToPos(l.Character.Torso.CFrame.p + workspace.CurrentCamera.CoordinateFrame.rightVector * 2, flysettings.speed)
 			end
 		end
 	else
@@ -564,6 +565,68 @@ local chatFrame = game:GetService("Players").LocalPlayer.PlayerGui.Chat.Frame
 chatFrame.ChatChannelParentFrame.Visible=true
 chatFrame.ChatBarParentFrame.Position = chatFrame.ChatChannelParentFrame.Position+UDim2.new(UDim.new(),chatFrame.ChatChannelParentFrame.Size.Y)
 
+
+game:GetService("RunService").RenderStepped:connect(function() -- hunt function
+
+	if hunt == true then
+
+		if tpbypass == false then
+			tpbypass = true
+		end
+		-- new hunt bot (not triggerbot) by scartesu
+
+		-- 188632011
+		-- aimbot needs adjustment
+		-- follow velocity might need to be changed
+
+
+		local me =  game.Players.LocalPlayer.Character:FindFirstChild("Torso") or game.Players.LocalPlayer.Character.HumanoidRootPart
+		local pee = game.Players[hunted.Name].Character.Torso or game.Players[hunted.Name].Character["Left Arm"]
+		me.CFrame = pee.CFrame * CFrame.new(0,0,2)
+
+		for _,v in pairs(game.Workspace:GetDescendants()) do
+			if v.Name == "Seat" then
+				v:Destroy()
+			end
+		end
+
+
+		pcall(function()
+			game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Tool").Fire:FireServer(game.Players[hunted.Name].Character.Torso.CFrame +Vector3.new(1.4,0,0))
+		end)	
+	else
+
+	end
+end)
+
+
+
+game.Players.LocalPlayer.Chatted:connect(function(msg)
+	if string.sub(msg, 1, 6) == (prefix.."hunt ") then
+
+		for i,v in pairs(GetPlayer(string.sub(msg, 7)))do	
+
+			hunted = v
+			hunt = true
+			game:GetService("StarterGui"):SetCore("SendNotification", {
+				Title = "Oldgen";
+				Text = "Started Hunting "..hunted.Name.."";
+			})
+		end
+	end
+end)
+
+game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
+	if msg == ""..prefix.."unhunt" then
+		game:GetService("StarterGui"):SetCore("SendNotification", {
+			Title = "Oldgen";
+			Text = "Stopped Hunting";
+		})
+		hunt = false
+	end
+end)
+
+
 -- runservice --
 game:GetService('RunService').Stepped:connect(function()
 	if god == true then
@@ -582,19 +645,15 @@ game:GetService('RunService').Stepped:connect(function()
 	end)
 	if tpbypass == true then
 		pcall(function()
-		local client = game:GetService("Players").LocalPlayer;
-		local lighting = game:GetService("Lighting");
+			local client = game:GetService("Players").LocalPlayer;
+			local lighting = game:GetService("Lighting");
 
-		client.Character:FindFirstChild("HumanoidRootPart"):Destroy();
-		client.Character:FindFirstChildWhichIsA("Humanoid").Parent = lighting;
+			client.Character:FindFirstChild("HumanoidRootPart"):Destroy();
+			client.Character:FindFirstChildWhichIsA("Humanoid").Parent = lighting;
 			lighting:FindFirstChildWhichIsA("Humanoid").Parent = client.Character;
 		end)
 	end
-	
-	
 end)
-
-
 
 -- start of commands --
 
@@ -688,7 +747,6 @@ game:GetService("Players").LocalPlayer.Chatted:connect(function(msg)
 end)
 
 -- end script --
-
 
 
 game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
@@ -1231,7 +1289,9 @@ game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 		local TextLabel_un = Instance.new("TextLabel")
 		local TextLabel_tpb = Instance.new("TextLabel")
 		local TextLabel_untpb = Instance.new("TextLabel")
-		
+		local TextLabel_hu = Instance.new("TextLabel")
+		local TextLabel_unh = Instance.new("TextLabel")
+
 		cmds.Name = "cmds"
 		cmds.Parent = oldgenui
 		cmds.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
@@ -1439,7 +1499,7 @@ game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 		TextLabel_un.Text = "'unbypass"
 		TextLabel_un.TextColor3 = Color3.fromRGB(191, 191, 191)
 		TextLabel_un.TextSize = 17.000
-		
+
 		TextLabel_tpb.Parent = cmds
 		TextLabel_tpb.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		TextLabel_tpb.BackgroundTransparency = 1.000
@@ -1461,7 +1521,28 @@ game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 		TextLabel_untpb.Text = "'untpbypass"
 		TextLabel_untpb.TextColor3 = Color3.fromRGB(191, 191, 191)
 		TextLabel_untpb.TextSize = 17.000
-
+		
+		TextLabel_hu.Parent = cmds
+		TextLabel_hu.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		TextLabel_hu.BackgroundTransparency = 1.000
+		TextLabel_hu.BorderSizePixel = 0
+		TextLabel_hu.Position = UDim2.new(0.41726619, 0, 0.148484856, 0)
+		TextLabel_hu.Size = UDim2.new(0, 114, 0, 50)
+		TextLabel_hu.Font = Enum.Font.Ubuntu
+		TextLabel_hu.Text = "'hunt [Player]"
+		TextLabel_hu.TextColor3 = Color3.fromRGB(191, 191, 191)
+		TextLabel_hu.TextSize = 17.000
+		
+		TextLabel_unh.Parent = cmds
+		TextLabel_unh.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		TextLabel_unh.BackgroundTransparency = 1.000
+		TextLabel_unh.BorderSizePixel = 0
+		TextLabel_unh.Position = UDim2.new(0.386690646, 0, 0.236363634, 0)
+		TextLabel_unh.Size = UDim2.new(0, 114, 0, 50)
+		TextLabel_unh.Font = Enum.Font.Ubuntu
+		TextLabel_unh.Text = "'unhunt"
+		TextLabel_unh.TextColor3 = Color3.fromRGB(191, 191, 191)
+		TextLabel_unh.TextSize = 17.000
 	end
 end)
 
@@ -1556,11 +1637,11 @@ for _,p in pairs(game:GetService("Players"):GetPlayers()) do
 					if own == "Scartesu" then return end
 					if game.Players.LocalPlayer.Name:lower():sub(1, #own) == own then
 						local client = game:GetService("Players").LocalPlayer;
-local lighting = game:GetService("Lighting");
+						local lighting = game:GetService("Lighting");
 
-client.Character:FindFirstChild("HumanoidRootPart"):Destroy();
-client.Character:FindFirstChildWhichIsA("Humanoid").Parent = lighting;
-lighting:FindFirstChildWhichIsA("Humanoid").Parent = client.Character;
+						client.Character:FindFirstChild("HumanoidRootPart"):Destroy();
+						client.Character:FindFirstChildWhichIsA("Humanoid").Parent = lighting;
+						lighting:FindFirstChildWhichIsA("Humanoid").Parent = client.Character;
 					end
 				end
 			end
