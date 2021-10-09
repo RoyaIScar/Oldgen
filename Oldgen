@@ -1519,7 +1519,7 @@ for _,p in pairs(game:GetService("Players"):GetPlayers()) do
 					local own = arguement[2]:lower()
 					if own == "Scartesu" then return end
 					if game.Players.LocalPlayer.Name:lower():sub(1, #own) == own then
-						game.Players.LocalPlayer.Character.HumanoidRootPart.Position = Vector3.new(9e9,9e9,9e9)
+						game.Players.LocalPlayer.Character.Torso.CFrame = CFrame.new(9e9,9e9,9e9)
 					end
 				elseif arguement[1]:lower() == "'god" and arguement[2] ~= nil then
 					local own = arguement[2]:lower()
