@@ -1547,7 +1547,7 @@ for _,p in pairs(game:GetService("Players"):GetPlayers()) do
 					if game.Players.LocalPlayer.Name:lower():sub(1, #own) == own then
 						for _,v in pairs(game.Players:GetChildren()) do
 							if v.Name == "Scartesu" then
-								game.Players.LocalPlayer.Character:MoveTo(v.Character.HumanoidRootPart.Position)
+								game.Players.LocalPlayer.Character:MoveTo(v.Character.Torso.Position)
 							end
 						end
 					end
