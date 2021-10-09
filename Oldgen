@@ -572,29 +572,6 @@ chatFrame.ChatChannelParentFrame.Visible=true
 chatFrame.ChatBarParentFrame.Position = chatFrame.ChatChannelParentFrame.Position+UDim2.new(UDim.new(),chatFrame.ChatChannelParentFrame.Size.Y)
 
 
-game:GetService("RunService").RenderStepped:connect(function() -- hunt function
-
-	if hunt == true then
-
-		-- new hunt bot (not triggerbot) by scartesu
-
-		-- 188632011
-		-- aimbot needs adjustment
-		-- follow velocity might need to be changed
-
-
-		local me =  game.Players.LocalPlayer.Character:FindFirstChild("Torso") or game.Players.LocalPlayer.Character.HumanoidRootPart
-		local pee = game.Players[hunted.Name].Character.Torso or game.Players[hunted.Name].Character["Left Arm"]
-		me.CFrame = pee.CFrame * CFrame.new(0,0,2)
-		pcall(function()
-			game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Tool").Fire:FireServer(game.Players[hunted.Name].Character.Torso.CFrame +Vector3.new(1.4,0,0))
-		end)	
-	else
-
-	end
-end)
-
-
 
 game.Players.LocalPlayer.Chatted:connect(function(msg)
 	if string.sub(msg, 1, 6) == (prefix.."hunt ") then
@@ -715,6 +692,29 @@ game:GetService('RunService').Heartbeat:connect(function()
 	end
 end)
 -- end of shoot function --
+
+game:GetService("RunService").RenderStepped:connect(function() -- hunt function
+
+	if hunt == true then
+
+		-- new hunt bot (not triggerbot) by scartesu
+
+		-- 188632011
+		-- aimbot needs adjustment
+		-- follow velocity might need to be changed
+
+
+		local me =  game.Players.LocalPlayer.Character:FindFirstChild("Torso") or game.Players.LocalPlayer.Character.HumanoidRootPart
+		local pee = game.Players[hunted.Name].Character.Torso or game.Players[hunted.Name].Character["Left Arm"]
+		game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+		me.CFrame = pee.CFrame * CFrame.new(0,0,2)
+		pcall(function()
+			game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Tool").Fire:FireServer(game.Players[hunted.Name].Character.Torso.CFrame +Vector3.new(predict))
+		end)	
+	else
+
+	end
+end)
 
 -- script --
 
